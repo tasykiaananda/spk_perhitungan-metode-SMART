@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPK Pemilihan Supplier Kopi - SMART</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Login Page -->
+    <div id="login-page" class="view-section active">
+        <div class="login-container">
+            <div class="login-card">
+                <div class="login-header">
+                    <h2>Lacete Coffeeshop</h2>
+                    <p>SPK Pemilihan Supplier Biji Kopi (SMART)</p>
+                </div>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" placeholder="Masukkan username admin" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Masukkan password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    <p class="login-hint">Gunakan <b>admin</b> / <b>admin123</b></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="main-app" class="view-section hidden">
+        
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Lacete <br><span>Coffeeshop</span></h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" data-target="dashboard" class="nav-link active"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="#" data-target="kriteria" class="nav-link"><i class="fas fa-list"></i> Data Kriteria</a></li>
+                    <li><a href="#" data-target="alternatif" class="nav-link"><i class="fas fa-users"></i> Data Alternatif</a></li>
+                    <li><a href="#" data-target="penilaian" class="nav-link"><i class="fas fa-star"></i> Penilaian</a></li>
+                    <li><a href="#" data-target="perhitungan" class="nav-link"><i class="fas fa-calculator"></i> Perhitungan</a></li>
+                    <li><a href="#" data-target="hasil" class="nav-link"><i class="fas fa-trophy"></i> Hasil Akhir</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" id="btn-logout" class="nav-link text-danger"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navbar -->
+            <header class="top-navbar">
+                <div class="nav-left">
+                    <button id="mobile-toggle" class="btn-icon"><i class="fas fa-bars"></i></button>
+                    <h2 id="page-title">Dashboard</h2>
+                </div>
+                <div class="nav-right">
+                    <div class="user-profile">
+                        <img src="https://ui-avatars.com/api/?name=Admin&background=F6C6D0&color=fff" alt="Admin Avatar">
+                        <span>Admin</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="content-section active">
+                <div class="welcome-card">
+                    <h3>Selamat Datang di Sistem Pendukung Keputusan</h3>
+                    <p>Pemilihan supplier biji kopi terbaik menggunakan Metode SMART (Simple Multi-Attribute Rating Technique).</p>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-list-check"></i></div>
+                        <div class="stat-info">
+                            <span class="stat-label">Jumlah Kriteria</span>
+                            <span class="stat-value" id="stat-kriteria">0</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-users"></i></div>
+                        <div class="stat-info">
+                            <span class="stat-label">Jumlah Alternatif</span>
+                            <span class="stat-value" id="stat-alternatif">0</span>
+                        </div>
+                    </div>
+                    <div class="stat-card highlight">
+                        <div class="stat-icon"><i class="fas fa-crown"></i></div>
+                        <div class="stat-info">
+                            <span class="stat-label">Rekomendasi Terbaik</span>
+                            <span class="stat-value" id="stat-terbaik">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+                    <h3>Aksi Cepat</h3>
+                    <div class="actions-grid">
+                        <button class="btn btn-outline" onclick="app.navigate('kriteria')"><i class="fas fa-list"></i> Kelola Kriteria</button>
+                        <button class="btn btn-outline" onclick="app.navigate('alternatif')"><i class="fas fa-users"></i> Kelola Alternatif</button>
+                        <button class="btn btn-outline" onclick="app.navigate('penilaian')"><i class="fas fa-star"></i> Input Penilaian</button>
+                        <button class="btn btn-primary" onclick="app.navigate('perhitungan')"><i class="fas fa-calculator"></i> Proses Perhitungan</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Kriteria Section -->
+            <section id="kriteria" class="content-section hidden">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Data Kriteria</h3>
+                        <p class="subtitle">Bobot ternormalisasi akan dihitung otomatis saat rating diubah (Total Bobot = 1.0)</p>
+                    </div>
+                    <div class="card-body overflow-x-auto">
+                        <div class="flex-between mb-4" style="gap: 10px; flex-wrap: wrap;">
+                            <div style="display: flex; gap: 10px;">
+                                <input type="text" id="new-kriteria-id" placeholder="Kode (K6)" class="input-cell" style="width: 100px;">
+                                <input type="text" id="new-kriteria-nama" placeholder="Nama Kriteria" class="input-cell" style="width: 150px;">
+                                <select id="new-kriteria-jenis" class="input-cell" style="width: 120px;">
+                                    <option value="Benefit">Benefit</option>
+                                    <option value="Cost">Cost</option>
+                                </select>
+                                <input type="number" id="new-kriteria-rating" placeholder="Rating" class="input-cell" style="width: 80px;" min="1" max="100">
+                                <button class="btn btn-primary" onclick="app.tambahKriteria()"><i class="fas fa-plus"></i> Tambah</button>
+                            </div>
+                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Kode</th>
+                                    <th>Nama Kriteria</th>
+                                    <th>Jenis</th>
+                                    <th>Rating Kepentingan (1-100)</th>
+                                    <th>Bobot Ternormalisasi</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-kriteria">
+                                <!-- Data rendered via JS -->
+                            </tbody>
+                            <tfoot>
+                                <tr class="font-bold">
+                                    <td colspan="3" class="text-right">Total:</td>
+                                    <td id="total-rating">0</td>
+                                    <td id="total-bobot">0</td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Alternatif Section -->
+            <section id="alternatif" class="content-section hidden">
+                <div class="card">
+                    <div class="card-header flex-between">
+                        <h3>Data Alternatif (Supplier)</h3>
+                    </div>
+                    <div class="card-body overflow-x-auto">
+                        <div class="flex-between mb-4">
+                            <div style="display: flex; gap: 10px;">
+                                <input type="text" id="new-alt-nama" placeholder="Nama Supplier Baru" class="input-cell" style="width: 250px;">
+                                <button class="btn btn-primary" onclick="app.tambahAlternatif()"><i class="fas fa-plus"></i> Tambah Supplier</button>
+                            </div>
+                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama Supplier</th>
+                                    <th width="150">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-alternatif">
+                                <!-- Data rendered via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Penilaian Section -->
+            <section id="penilaian" class="content-section hidden">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Data Penilaian</h3>
+                        <p class="subtitle">Masukkan nilai aktual untuk tiap supplier berdasarkan kriteria.</p>
+                    </div>
+                    <div class="card-body overflow-x-auto">
+                        <table class="data-table">
+                            <thead>
+                                <tr id="header-penilaian">
+                                    <th>No</th>
+                                    <th>Supplier</th>
+                                    <!-- Dynamic headers via JS -->
+                                </tr>
+                            </thead>
+                            <tbody id="table-penilaian">
+                                <!-- Data rendered via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Perhitungan Section -->
+            <section id="perhitungan" class="content-section hidden">
+                <div class="process-action">
+                    <button id="btn-proses-hitung" class="btn btn-primary btn-lg"><i class="fas fa-calculator"></i> Proses Hitung SMART</button>
+                </div>
+
+                <div id="hasil-perhitungan" class="hidden">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h3>1. Nilai Utilitas Kriteria (0-100)</h3>
+                            <p class="subtitle">Berdasarkan rumus ui(ai) Cost / Benefit.</p>
+                        </div>
+                        <div class="card-body overflow-x-auto">
+                            <table class="data-table">
+                                <thead>
+                                    <tr id="header-utilitas">
+                                        <!-- Dynamic -->
+                                    </tr>
+                                </thead>
+                                <tbody id="table-utilitas">
+                                    <!-- Dynamic -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>2. Nilai Kontribusi Terbobot (Wi × ui)</h3>
+                            <p class="subtitle">Nilai utilitas dikalikan dengan bobot kriteria ternormalisasi.</p>
+                        </div>
+                        <div class="card-body overflow-x-auto">
+                            <table class="data-table">
+                                <thead>
+                                    <tr id="header-terbobot">
+                                        <!-- Dynamic -->
+                                    </tr>
+                                </thead>
+                                <tbody id="table-terbobot">
+                                    <!-- Dynamic -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hasil Akhir Section -->
+            <section id="hasil" class="content-section hidden">
+                <div class="card mb-4 print-hide">
+                    <div class="card-header flex-between">
+                        <h3>Grafik Perbandingan Skor Akhir</h3>
+                        <button class="btn btn-primary" onclick="window.print()"><i class="fas fa-print"></i> Unduh / Cetak Laporan</button>
+                    </div>
+                    <div class="card-body chart-container">
+                        <canvas id="rankingChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card" id="print-area">
+                    <div class="card-header text-center print-only">
+                        <h2>LAPORAN HASIL REKOMENDASI SUPPLIER BIJI KOPI</h2>
+                        <p>Metode SMART - Lacete Coffeeshop</p>
+                        <hr>
+                    </div>
+                    <div class="card-header print-hide">
+                        <h3>Tabel Hasil Akhir & Perangkingan</h3>
+                    </div>
+                    <div class="card-body overflow-x-auto">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Peringkat</th>
+                                    <th>Nama Supplier</th>
+                                    <th>Skor Akhir</th>
+                                    <th>Keterangan</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-ranking">
+                                <!-- Dynamic -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
