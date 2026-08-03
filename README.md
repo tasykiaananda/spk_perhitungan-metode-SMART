@@ -1,6 +1,5 @@
-<p align="center">
-  <img src="https://via.placeholder.com/200x200.png?text=Logo+SPK+Kopi" alt="Logo SPK Kopi">
-</p>
+<img width="140" height="128" alt="image" src="https://github.com/user-attachments/assets/db106631-d895-46b5-b9ad-699310fa3128" />
+
 
 <h1 align="center">Sistem Pendukung Keputusan Pemilihan Supplier Biji Kopi</h1>
 <h3 align="center">Menggunakan Metode SMART (Simple Multi-Attribute Rating Technique)</h3>
