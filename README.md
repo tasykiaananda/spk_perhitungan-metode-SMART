@@ -35,7 +35,7 @@ Kualitas biji kopi adalah nyawa dari sebuah bisnis *coffee shop*. Seringkali, pe
 
 ## 🛠️ 5. Teknologi yang Digunakan
 Sistem ini dibangun menggunakan arsitektur modern dan standar industri:
-- **Framework Backend:** Laravel 10 (PHP)
+- **Framework Backend:** Laravel 13 (PHP)
 - **Database:** MySQL
 - **Frontend / UI:** Bootstrap 5, HTML5, CSS3
 - **Interaktivitas:** JavaScript (Vanilla / jQuery), SweetAlert2
@@ -131,15 +131,14 @@ Ikuti langkah-langkah berikut untuk menjalankan aplikasi di komputer lokal:
 
 | Halaman | Screenshot |
 |---------|------------|
-| **1. Login Admin** | ![Login](https://via.placeholder.com/600x300.png?text=Screenshot+Login) |
-| **2. Dashboard** | ![Dashboard](https://via.placeholder.com/600x300.png?text=Screenshot+Dashboard) |
-| **3. Data Supplier** | ![Data Supplier](https://via.placeholder.com/600x300.png?text=Screenshot+Data+Supplier) |
-| **4. Data Kriteria** | ![Data Kriteria](https://via.placeholder.com/600x300.png?text=Screenshot+Data+Kriteria) |
-| **5. Penilaian** | ![Penilaian](https://via.placeholder.com/600x300.png?text=Screenshot+Penilaian) |
-| **6. Hasil SMART** | ![Hasil SMART](https://via.placeholder.com/600x300.png?text=Screenshot+Hasil+SMART) |
-| **7. Ranking Akhir** | ![Ranking Akhir](https://via.placeholder.com/600x300.png?text=Screenshot+Ranking+Akhir) |
+| **1. Login Admin** |
+| **2. Dashboard** |
+| **3. Data Supplier** | 
+| **4. Data Kriteria** |
+| **5. Penilaian** | 
+| **6. Hasil SMART** | 
+| **7. Ranking Akhir** | 
 
-*(Ganti URL placeholder di atas dengan path gambar asli aplikasi).*
 
 ## 📑 11. Penjelasan Menu Utama
 - 🏠 **Dashboard:** Menampilkan ringkasan data statistik jumlah kriteria, supplier, dan pengguna.
@@ -180,7 +179,6 @@ Beberapa fitur yang dapat ditambahkan di masa depan:
 
 ## 👥 17. Kontributor
 - **Tasykia Ananda** - *Lead Developer / Peneliti* - [@tasykiaananda](https://github.com/tasykiaananda)
-- **[Nama Dosen Pembimbing]** - *Dosen Pembimbing*
 
 ## 📜 18. Lisensi
 Didistribusikan di bawah **MIT License**. Silakan lihat `LICENSE` untuk informasi lebih lanjut.
