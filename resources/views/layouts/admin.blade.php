@@ -187,7 +187,7 @@
 
                     <!-- User Profile Dropdown -->
                     <div class="user-profile" id="user-profile-menu">
-                        <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name) }}&background=5B86E5&color=fff" alt="Avatar">
+                        <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name) }}&background=9B827E&color=FAF4EB" alt="Avatar">
                         <span>{{ Auth::user()->name }}</span>
                     </div>
                 </div>
